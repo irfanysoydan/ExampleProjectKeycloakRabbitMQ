@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accounting Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Accounting Hub</h1>
+        <p>Hotel invoices, from Keycloak sign-in to the ERP, through RabbitMQ.</p>
+      </div>
+      <span id="tenant-badge" class="badge" hidden></span>
+    </header>
+
+    <ol id="flow" class="flow" aria-label="Request path">
+      <li>Keycloak</li>
+      <li>API</li>
+      <li>RabbitMQ</li>
+      <li>Worker</li>
+      <li>ERP</li>
+    </ol>
+
+    <section aria-labelledby="session-title">
+      <div class="section-head">
+        <h2 id="session-title">Session</h2>
+        <button id="login" type="button" class="primary">Sign in with Keycloak</button>
+        <button id="logout" type="button" hidden>Sign out</button>
+      </div>
+      <p id="session-status">Password for all demo users: <code>accountant-dev-password</code></p>
+      <ul id="demo-users" class="users">
+        <li><code>accountant</code> Hotel_01</li>
+        <li><code>accountant2</code> Hotel_02</li>
+        <li><code>auditor</code> Hotel_01, no submit role</li>
+      </ul>
+      <dl id="claims" hidden></dl>
+    </section>
+
+    <section aria-labelledby="invoice-title">
+      <h2 id="invoice-title">Invoice</h2>
+      <form id="invoice" class="fields">
+        <label>Invoice ID <input name="invoiceId" value="INV-999" required></label>
+        <label>Hotel (tenant ID) <input name="tenantId" value="Hotel_01" readonly></label>
+        <label>Amount <input name="amount" type="number" step="0.01" value="1250.00" required></label>
+        <label>ERP system <input name="erpSystem" value="Logo/Netsis" required></label>
+      </form>
+    </section>
+
+    <section aria-labelledby="scenarios-title">
+      <h2 id="scenarios-title">Scenarios</h2>
+      <div id="scenarios" class="scenarios"></div>
+    </section>
+
+    <section aria-labelledby="activity-title">
+      <h2 id="activity-title">Activity</h2>
+      <ol id="activity" aria-live="polite"></ol>
+      <p id="activity-empty">Nothing yet. Run a scenario.</p>
+    </section>
+
+    <footer>
+      <a href="http://localhost:15672/#/queues" target="_blank" rel="noopener">RabbitMQ queues</a>
+      <a href="http://localhost:8080/admin/master/console/#/accounting-hub" target="_blank" rel="noopener">Keycloak realm</a>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Accounting.Api/Accounting.Api.csproj" />
+    <Project Path="src/Accounting.Contracts/Accounting.Contracts.csproj" />
+    <Project Path="src/Accounting.Messaging/Accounting.Messaging.csproj" />
+    <Project Path="src/Accounting.Worker/Accounting.Worker.csproj" />
+  </Folder>
+</Solution>
