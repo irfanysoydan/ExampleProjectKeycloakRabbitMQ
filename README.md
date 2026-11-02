@@ -17,7 +17,8 @@ You need [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or D
 1. Get the code and open its folder:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/irfanysoydan/ExampleProjectKeycloakRabbitMQ.git
+   cd ExampleProjectKeycloakRabbitMQ
    ```
 
 2. Start everything from the folder that contains `docker-compose.yml`:
